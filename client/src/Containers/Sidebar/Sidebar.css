@@ -22,3 +22,19 @@
     background: var(--p-white);
     transition: ease-in-out 0.5s;
 }
+.__navbar button
+{
+    outline: 0;
+    border: 0;
+    padding: 20px;
+    border-radius: 4rem;
+    background: var(--violet);
+    color: #fff;
+    width:60px;
+    height:60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 4rem 0 0 3rem;
+    cursor: pointer;
+}

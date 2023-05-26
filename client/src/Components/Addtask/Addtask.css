@@ -1,0 +1,48 @@
+.__addtask form
+{
+    width: 400px;
+    height: 600px;
+    background: var(--p-white);
+    padding: 20px;
+    border-radius: 10px;
+}
+.__addtask form h1
+{
+    font-size: 1.1rem;
+    color: var(--s-black);
+}
+.__addtask form p
+{
+    margin: 0rem 0;
+    position: relative;
+    padding: 20px;
+}
+.__addtask form p label
+{
+    position: absolute;
+    top:2rem;
+    left: 1rem;
+    pointer-events: none;
+    font-size: 1rem;
+    transition: 0.4s;
+}
+.__addtask form input
+{
+    outline: 0;
+    padding: 10px 0;
+    width: 20rem;
+    border: 0;
+    border-bottom: 1px solid var(--s-black);
+}
+.__addtask form input:focus ~  label
+{
+    transform: translateY(-1.8rem);
+    transition:0.4s;
+    color: var(--violet);
+}
+.__addtask form input:focus{border-bottom: 1px solid var(--violet);}
+
+.__addtask form .taskName
+{
+    font-weight: 666;
+}
