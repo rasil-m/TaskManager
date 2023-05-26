@@ -5,6 +5,7 @@
     background: var(--p-white);
     padding: 20px;
     border-radius: 10px;
+    position: relative;
 }
 .__addtask form h1
 {
@@ -45,4 +46,22 @@
 .__addtask form .taskName
 {
     font-weight: 666;
+}
+
+.__addtask form button
+{
+    outline: 0;
+    border: 0;
+    background: var(--violet);
+    color: var(--p-white);
+    padding: 15px 35px;
+    margin: 2rem 0 0 30%;
+    border-radius: 6px;
+}
+.__addtask form .closeIcon
+{
+    position: absolute;
+    top:1.2rem;
+    right:2rem;
+
 }

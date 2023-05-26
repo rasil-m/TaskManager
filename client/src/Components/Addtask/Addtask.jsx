@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import './Addtask.css'
+import CloseIcon from '@mui/icons-material/Close';
 
 const Addtask = ({isOpen}) => {
 
@@ -18,14 +19,14 @@ const Addtask = ({isOpen}) => {
         tags:""
 
     })
-    
-
 
   return (
     <>
-     <div className="__addtask">
+    {isOpen?
+     <div className="__addtask" style={isOpen?{transform:"scale(1,1)"}:{transform:"scale(0,0)"}}>
         <form action="">
             <h1>Add new task</h1>
+            <CloseIcon className='closeIcon'/>
             <p>
                 <input type="text" className='taskName' onChange={(e)=>{setData({...data,taskName:e.target.value})}} value={data.taskName}/>
                 <label>Task name</label>
@@ -45,8 +46,9 @@ const Addtask = ({isOpen}) => {
                 <input type="textarea" onChange={(e)=>{setData({...data,tags:e.target.value})}} value={data.tags}/>
                 <label>Tags</label>
             </p>
+            <button>Create task</button>
         </form>
-     </div>
+     </div>:null}
     </>
   )
 }

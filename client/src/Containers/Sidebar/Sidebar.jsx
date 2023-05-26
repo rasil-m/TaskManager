@@ -18,7 +18,7 @@ const Sidebar = () => {
         <Link to=""><StarBorderOutlinedIcon/>Important</Link>
         <Link to=""><CalendarMonthOutlinedIcon/>Upcoming</Link>
         <Link to=""><DeleteOutlineOutlinedIcon/>Trash</Link>
-        <button onClick={()=>{setToggle(!toggle)}}><AddOutlinedIcon sx={{ fontSize:25 }}/></button>
+        <button className='create' onClick={()=>{setToggle(!toggle)}}><AddOutlinedIcon sx={{ fontSize:25 }}/></button>
         <Addtask isOpen={toggle}/>
     </div>
 
