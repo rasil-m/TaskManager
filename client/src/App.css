@@ -1,0 +1,15 @@
+.__layout
+{
+    display: flex;
+}
+.__sidebar
+{
+    padding: 30px;
+    width: 20%;
+    height: 100vh;
+    background: var(--t-white);
+}
+.__contents
+{
+    width: 80%;
+}
