@@ -1,9 +1,9 @@
 .__addtask form
 {
     width: 400px;
-    height: 600px;
+    height: auto;
     background: var(--p-white);
-    padding: 20px;
+    padding: 20px 20px 50px 20px;
     border-radius: 10px;
     position: relative;
 }
@@ -41,13 +41,18 @@
     transition:0.4s;
     color: var(--violet);
 }
-.__addtask form input:focus{border-bottom: 1px solid var(--violet);}
+
+.__addtask form input:valid ~  label
+{
+    transform: translateY(-1.8rem);
+    color: var(--violet);
+}
+.__addtask form input:valid{border-bottom: 1px solid var(--violet);}
 
 .__addtask form .taskName
 {
     font-weight: 666;
 }
-
 .__addtask form button
 {
     outline: 0;
@@ -63,5 +68,37 @@
     position: absolute;
     top:1.2rem;
     right:2rem;
+    cursor: pointer;
 
+}
+.__addtask form .tags
+{
+    padding: 0;
+    margin: 10px 0
+}
+.__addtask form .tags span
+{
+    margin: 5px 5px;
+    font-size: 0.9rem;
+    background: var(--violet);
+    color: var(--p-white);
+    padding: 5px;
+    border-radius: 8px;
+}
+.__addtask form .important input
+{
+    padding: 0;
+    width: 0.9rem;
+}
+.__addtask form .important input[type="checkbox"]:checked
+{
+    accent-color: var(--violet);
+
+}
+.__addtask form .important
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }

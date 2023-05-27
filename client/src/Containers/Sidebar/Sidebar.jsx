@@ -11,6 +11,10 @@ import Addtask from '../../Components/Addtask/Addtask';
 const Sidebar = () => {
 
   const [toggle,setToggle]=useState(false)
+  const handleToggle=()=>
+   {
+    setToggle(!toggle)
+   }
 
   return (
     <div className="__navbar">
@@ -18,8 +22,8 @@ const Sidebar = () => {
         <Link to=""><StarBorderOutlinedIcon/>Important</Link>
         <Link to=""><CalendarMonthOutlinedIcon/>Upcoming</Link>
         <Link to=""><DeleteOutlineOutlinedIcon/>Trash</Link>
-        <button className='create' onClick={()=>{setToggle(!toggle)}}><AddOutlinedIcon sx={{ fontSize:25 }}/></button>
-        <Addtask isOpen={toggle}/>
+        <button className='create' onClick={handleToggle}><AddOutlinedIcon sx={{ fontSize:25 }}/></button>
+        <Addtask isOpen={toggle} handle={handleToggle}/>
     </div>
 
   )
