@@ -1,0 +1,69 @@
+.__taskcard
+{
+    width: 450px;
+    height: 160px;
+    background: #ffd8d9;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    margin: 2rem 0;
+}
+.__taskcard .__taskcontents
+{
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+.__taskcard h2
+{
+    font-size: 1rem;
+}
+.__taskcard p
+{
+    font-size: 0.9rem;
+}
+.__taskcard select
+{
+    border: 0;
+    outline: 0;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 3rem;
+}
+.__taskcard select option
+{
+    border: 0;
+    outline: 0;
+}
+.__taskcard .__more
+{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+}
+.__taskcard .__dlg
+{
+    position: absolute;
+    top: 3.2rem;
+    right: 2.4rem;
+    z-index: 3;
+    background: var(--p-white);
+    padding: 5px;
+    border-radius: 10px;
+    transition: 0.4s;
+}
+.__taskcard .__dlg p
+{
+    padding: 10px; 
+    font-size: 0.9rem; 
+    cursor: pointer; 
+}
+.__taskcard .__dlg p:hover
+{
+    background: var(--s-white);
+    transition: 0.4s;
+}

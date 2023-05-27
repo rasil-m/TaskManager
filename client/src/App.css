@@ -31,7 +31,6 @@
     align-items: center;
     justify-content: center;
     transition: 0.8s;
-    z-index: 88;
     z-index: 999;
 }
 .__header_container
@@ -41,4 +40,8 @@
 .__meeting_container
 {
     width: 30%;
+}
+.__home
+{
+    margin: 5rem;
 }
