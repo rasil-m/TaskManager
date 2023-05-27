@@ -1,17 +1,23 @@
 .__layout
 {
     display: flex;
+    z-index: 1;
 }
 .__sidebar
 {
+    position: fixed;
+    top: 0;
     padding: 30px;
     width: 20%;
     height: 100vh;
     background: var(--s-white);
+    z-index: 88;
 }
 .__contents
 {
     width: 80%;
+    display: flex;
+    margin-left: 20%;
 }
 .__addtask
 {
@@ -25,4 +31,14 @@
     align-items: center;
     justify-content: center;
     transition: 0.8s;
+    z-index: 88;
+    z-index: 999;
+}
+.__header_container
+{
+    width: 50%;
+}
+.__meeting_container
+{
+    width: 30%;
 }
