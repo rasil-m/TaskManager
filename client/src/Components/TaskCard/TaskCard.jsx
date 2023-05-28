@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './TaskCard.css'
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 
-const TaskCard = () => {
+const TaskCard = ({id}) => {
 
     const[dlg,setDlg]=useState(false)
 
@@ -27,7 +27,7 @@ const TaskCard = () => {
             dlg?
             <div className="__dlg">
             <p>Edit</p>
-            <p>Delete</p>
+            <p onClick={()=>{alert(id)}}>Delete</p>
             </div>
             :null
         }

@@ -38,3 +38,33 @@
     margin: 4rem 0 0 3rem;
     cursor: pointer;
 }
+.__category_box
+{
+    position: relative;
+}
+.__category_box .__types
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.__category_box .__types p
+{
+    padding: 10px;
+}
+.__category_box .__types p:hover
+{
+    background: var(--s-white);
+    transition: 0.4s;
+}
+.__category_box .__types .____close
+{
+    position: absolute;
+    right: 0.4rem;
+    top: 0.3rem;
+}

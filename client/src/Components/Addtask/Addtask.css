@@ -5,6 +5,7 @@
     background: var(--p-white);
     padding: 20px 20px 50px 20px;
     border-radius: 10px;
+    position: relative;
 }
 .__addtask form h1
 {
