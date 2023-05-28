@@ -1,4 +1,5 @@
-export const fetch=(a)=>
+export const postData=(data)=>
  {
-    return a+5
+    return data.date
+
  }

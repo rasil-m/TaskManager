@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import './Addtask.css'
 import CloseIcon from '@mui/icons-material/Close'
+import { postData } from '../../utility'
 
 const Addtask = ({isOpen,handle,type}) => {
 
@@ -21,11 +22,10 @@ const Addtask = ({isOpen,handle,type}) => {
 
     })
 
-     console.log(type?"Task":"Meeting")
-
     const handleForm=(e)=>
      {
         e.preventDefault()
+        console.log(postData(data))
      }
 
   return (
