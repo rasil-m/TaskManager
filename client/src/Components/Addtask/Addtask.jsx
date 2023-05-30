@@ -15,17 +15,19 @@ const Addtask = ({isOpen,handle,type}) => {
     const[data,setData]=useState({
         taskName:"",
         date:today,
-        time:currentTime,
+        time1:currentTime,
         desc:"",
         tags:"",
         important:false
 
     })
 
-    const handleForm=(e)=>
+    const handleForm=async(e)=>
      {
         e.preventDefault()
-        console.log(postData(data))
+        const response = await postData(data);
+        if(response.data)
+         handle()
      }
 
   return (
@@ -44,7 +46,7 @@ const Addtask = ({isOpen,handle,type}) => {
                 <input type="date" onChange={(e)=>{setData({...data,date:e.target.value})}} value={data.date} required/>
             </p>
             <p>
-                <input type="time" onChange={(e)=>{setData({...data,time:e.target.value})}} value={data.time} required/>
+                <input type="time" onChange={(e)=>{setData({...data,time1:e.target.value})}} value={data.time1} required/>
             </p>
             
             {type?

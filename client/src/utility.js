@@ -1,5 +1,6 @@
+import axios from 'axios'
 export const postData=(data)=>
  {
-    return data.date
+    return axios.post("http://localhost:8081/addTask",data)
 
  }
