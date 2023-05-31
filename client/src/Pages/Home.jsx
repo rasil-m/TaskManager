@@ -1,16 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import TaskCard from '../Components/TaskCard/TaskCard'
+import { fetchData } from '../utility'
 
 const Home = () => {
+  const [Data,setData]=useState([]);
+
+  const loadData=async()=>
+   {
+    const response=await fetchData()
+    setData(response.data)
+    console.log(Data)
+   }
+
+  useEffect(()=>{
+
+    loadData()
+
+  })
+
+  const task=Data?.map((task,key)=>{
+    return(
+      <TaskCard data={task}/>
+    )
+  })
+
+  const response=fetchData()
 
   return (
     <div className='__home'>
-      <TaskCard id={1}/>
-      <TaskCard id={2}/>
-      <TaskCard id={3}/>
-      <TaskCard id={4}/>
-      <TaskCard id={5}/>
-      <TaskCard id={6}/>
+      {task}
     </div>
   )
 }

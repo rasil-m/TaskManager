@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import './TaskCard.css'
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
+import { deletData } from '../../utility';
 
-const TaskCard = ({id}) => {
+const TaskCard = ({data}) => {
 
     const[dlg,setDlg]=useState(false)
 
@@ -10,12 +11,23 @@ const TaskCard = ({id}) => {
      {
         setDlg(!dlg)
      }
+    
+    const editTask=(id)=>
+     {
+      alert(id)
+     }
+    const deleteTask=async(id)=>
+     {
+      const response=await deletData(id)
+       if(response.data)
+        handleDlg()
+     }
 
   return (
     <div className="__taskcard"> 
      <div className="__taskcontents">
-        <h2>User flow diagram for ecommerce app</h2>
-        <p>Ecommerce app from mytech solutions</p>
+        <h2>{data.taskName}</h2>
+        <p>{data.desc}</p>
         <select>
             <option value="" selected>status</option>
             <option value="">progress</option>
@@ -26,8 +38,8 @@ const TaskCard = ({id}) => {
      {
             dlg?
             <div className="__dlg">
-            <p>Edit</p>
-            <p onClick={()=>{alert(id)}}>Delete</p>
+            <p onClick={()=>{editTask(data._id)}}>Edit</p>
+            <p onClick={()=>{deleteTask(data._id)}}>Delete</p>
             </div>
             :null
         }
