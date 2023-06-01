@@ -16,11 +16,20 @@ const Addtask = ({isOpen,handle,type}) => {
         taskName:"",
         date:today,
         time1:currentTime,
+        time2:currentTime,
         desc:"",
         tags:"",
-        important:false
+        important:false,
+        type:type
 
     })
+
+    useEffect(()=>{
+        setData({...data,type:type})
+
+    })
+
+    console.log(data.type)
 
 
 
@@ -58,7 +67,7 @@ const Addtask = ({isOpen,handle,type}) => {
                 <label>Description</label>
             </p>:
             <p>
-            <input type="time" onChange={(e)=>{setData({...data,time:e.target.value})}} value={data.time} required/>
+            <input type="time" onChange={(e)=>{setData({...data,time2:e.target.value})}} value={data.time2} required/>
            </p>
             
             }
@@ -82,7 +91,7 @@ const Addtask = ({isOpen,handle,type}) => {
                 <input type="checkbox" onChange={(e)=>{setData({...data,important:!(data.important)})}}/>Set as important
             </p>
     
-            <button onClick={handleForm}>Create {type?"Task":"Meeting"}</button>
+            <button onClick={(e)=>{setData({...data,type:type});handleForm(e)}}>Create {type?"Task":"Meeting"}</button>
         </form>
      </div>:null}
     </>

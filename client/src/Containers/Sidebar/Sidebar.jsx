@@ -13,7 +13,7 @@ const Sidebar = () => {
 
   const [toggle,setToggle]=useState(false)
   const[dlg,setDlg]=useState(false)
-  const[type,setType]=useState(false)
+  const[type,setType]=useState()
 
   const handleToggle=()=>
    {

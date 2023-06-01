@@ -19,12 +19,13 @@ const Home = () => {
   })
 
   const task=Data?.map((task,key)=>{
-    return(
+    if(task.type)
+      return(
       <TaskCard data={task}/>
-    )
+      )
   })
 
-  const response=fetchData()
+  //const response=fetchData()
 
   return (
     <div className='__home'>

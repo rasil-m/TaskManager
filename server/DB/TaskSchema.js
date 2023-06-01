@@ -8,7 +8,8 @@ const taskSchema = new Schema({
     time2:String,
     important:String,
     desc:String,
-    tags:String
+    tags:String,
+    type:String
    },
     {versionKey: false}
   );

@@ -11,18 +11,10 @@ mongoose.connect('mongodb://0.0.0.0:27017/TaskManager');
 
 app.post("/addTask",jsonParser,async(req,res)=>{
 
-    const newData=
-    {
-        taskName:"Task Name",
-        date:"",
-        time1:"",
-        time2:"",
-        desc:"",
-        tags:"",
-        important:""
-    }
+   
 
     const Data=new Taskschema(req.body);
+    console.log(req.body.type)
     Data.save().then(()=>{ res.send("true")})
 })
 
