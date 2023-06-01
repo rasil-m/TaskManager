@@ -38,4 +38,24 @@ app.delete("/deleteData/:key",async(req,res)=>{
     res.send(true)
 })
 
+app.get("/fetchOne/:key",async(req,res)=>{
+
+     let data=await Taskschema.findOne({_id:req.params.key})
+     res.send(data)
+
+})
+
+app.put("/UpdateTask",jsonParser,async(req,res)=>{
+
+    const data=await Taskschema.updateOne(
+        {_id:req.body._id},{
+        $set:req.body
+    
+    }
+    
+    )
+    res.send(data.acknowledged)
+
+})
+
 app.listen(process.env.PORT || 8081);

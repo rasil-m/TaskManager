@@ -1,42 +1,32 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react'
-import './Addtask.css'
+import React, { useState } from 'react'
 import CloseIcon from '@mui/icons-material/Close'
-import { postData,fetchOne } from '../../utility'
+import { fetchOne,UpdateOne } from '../../utility'
+import { useEffect } from 'react'
 
-const Addtask = ({isOpen,handle,type}) => {
+const UpdateTask = ({isOpen,handle,type,uid}) => {
 
-    const currentDate=new Date().toLocaleDateString().split("/")
-    let today=currentDate[2]+"-"+((currentDate[0]<10)?"0"+currentDate[0]:currentDate[0])+"-"+((currentDate[1]<10)?"0"+currentDate[1]:currentDate[1])
-
-    const currentTime=new Date().toLocaleTimeString('en-US', { hour12: false, hour: "numeric", minute: "numeric"})
+    const[data,setData]=useState([])
+   useEffect(()=>{
+    fetchOne(uid).then((r)=>{
+        setData(r.data)
+    })
+   },[])
     
 
-    const[data,setData]=useState({
-        taskName:"",
-        date:today,
-        time1:currentTime,
-        desc:"",
-        tags:"",
-        important:false
-
-    })
-
-
-
+    console.log(data)
 
     const handleForm=async(e)=>
      {
         e.preventDefault()
-        const response = await postData(data);
-        if(response.data)
+        const res=await UpdateOne(data)
+        if(res.data)
          handle()
+
      }
 
+
   return (
-    <>
-    {isOpen?
-     <div className="__addtask" style={isOpen?{transform:"scale(1,1)"}:{transform:"scale(0,0)"}}>
+    <div className="__addtask" style={isOpen?{transform:"scale(1,1)"}:{transform:"scale(0,0)"}}>
         <form onKeyDown={(e) => { e.key === 'Enter' && e.preventDefault() }}>
             <h1>Add new {type?"Task":"Meeting"}</h1>
             <CloseIcon className='closeIcon' onClick={()=>{handle()}}/>
@@ -82,11 +72,10 @@ const Addtask = ({isOpen,handle,type}) => {
                 <input type="checkbox" onChange={(e)=>{setData({...data,important:!(data.important)})}}/>Set as important
             </p>
     
-            <button onClick={handleForm}>Create {type?"Task":"Meeting"}</button>
+            <button onClick={handleForm}>Update</button>
         </form>
-     </div>:null}
-    </>
+     </div>
   )
 }
 
-export default Addtask
+export default UpdateTask

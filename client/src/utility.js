@@ -15,3 +15,13 @@ export const deletData=(key)=>
    {
       return axios.delete("http://localhost:8081/deleteData/"+key)
    }
+
+export const fetchOne=(key)=>
+ {
+   return axios.get("http://localhost:8081/fetchOne/"+key)
+ }
+
+export const UpdateOne=(data)=>
+ {
+   return axios.put("http://localhost:8081/UpdateTask",data)
+ }

@@ -2,19 +2,24 @@ import React, { useState } from 'react'
 import './TaskCard.css'
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import { deletData } from '../../utility';
+import Addtask from '../Addtask/Addtask';
+import UpdateTask from '../UpdateTask/UpdateTask';
 
 const TaskCard = ({data}) => {
 
     const[dlg,setDlg]=useState(false)
+    const [toggle,setToggle]=useState(false)
+    const [udata,setUdata]=useState()
 
     const handleDlg=()=>
      {
         setDlg(!dlg)
      }
     
-    const editTask=(id)=>
+    const editTask=(edit)=>
      {
-      alert(id)
+       setToggle(true)
+       setUdata(edit)
      }
     const deleteTask=async(id)=>
      {
@@ -22,6 +27,11 @@ const TaskCard = ({data}) => {
        if(response.data)
         handleDlg()
      }
+
+     const handleToggle=()=>
+   {
+      setToggle(!toggle)
+   }
 
   return (
     <div className="__taskcard"> 
@@ -43,6 +53,11 @@ const TaskCard = ({data}) => {
             </div>
             :null
         }
+        {
+          toggle?
+          <UpdateTask isOpen={true} handle={handleToggle} type={true} uid={udata}/>:null
+        }
+        
     </div>
   )
 }
