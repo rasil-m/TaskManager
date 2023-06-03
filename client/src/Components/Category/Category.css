@@ -1,0 +1,16 @@
+.__category_btn
+{
+    outline: 0;
+    border: 0;
+    padding: 15px 20px;
+    border-radius: 10px;
+    background:var(--s-white);
+    cursor: pointer;
+}
+
+.__category_btn:hover
+ {
+    transition:ease-in-out 0.4s;
+    background: var(--violet);
+    color: #fff;
+ }

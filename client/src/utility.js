@@ -25,3 +25,8 @@ export const UpdateOne=(data)=>
  {
    return axios.put("http://localhost:8081/UpdateTask",data)
  }
+
+export const fetchCategory=(key)=>
+ {
+  return axios.get("http://localhost:8081/fetchCategory/"+key)
+ }

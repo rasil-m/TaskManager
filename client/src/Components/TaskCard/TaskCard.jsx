@@ -5,7 +5,7 @@ import { deletData } from '../../utility';
 import Addtask from '../Addtask/Addtask';
 import UpdateTask from '../UpdateTask/UpdateTask';
 
-const TaskCard = ({data}) => {
+const TaskCard = ({data,load}) => {
 
     const[dlg,setDlg]=useState(false)
     const [toggle,setToggle]=useState(false)
@@ -26,6 +26,7 @@ const TaskCard = ({data}) => {
       const response=await deletData(id)
        if(response.data)
         handleDlg()
+        load()
      }
 
      const handleToggle=()=>
@@ -55,7 +56,7 @@ const TaskCard = ({data}) => {
         }
         {
           toggle?
-          <UpdateTask isOpen={true} handle={handleToggle} type={true} uid={udata}/>:null
+          <UpdateTask isOpen={true} handle={handleToggle} type={true} uid={udata} load={load}/>:null
         }
         
     </div>

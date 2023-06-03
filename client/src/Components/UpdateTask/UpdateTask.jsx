@@ -3,7 +3,7 @@ import CloseIcon from '@mui/icons-material/Close'
 import { fetchOne,UpdateOne } from '../../utility'
 import { useEffect } from 'react'
 
-const UpdateTask = ({isOpen,handle,type,uid}) => {
+const UpdateTask = ({isOpen,handle,type,uid,load}) => {
 
     const[data,setData]=useState([])
    useEffect(()=>{
@@ -21,6 +21,7 @@ const UpdateTask = ({isOpen,handle,type,uid}) => {
         const res=await UpdateOne(data)
         if(res.data)
          handle()
+         load()
 
      }
 

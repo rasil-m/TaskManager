@@ -6,10 +6,10 @@ const taskSchema = new Schema({
     date:String,
     time1:String,
     time2:String,
-    important:String,
+    important:Boolean,
     desc:String,
     tags:String,
-    type:String
+    type:Boolean
    },
     {versionKey: false}
   );

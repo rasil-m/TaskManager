@@ -14,7 +14,6 @@ app.post("/addTask",jsonParser,async(req,res)=>{
    
 
     const Data=new Taskschema(req.body);
-    console.log(req.body.type)
     Data.save().then(()=>{ res.send("true")})
 })
 
@@ -47,6 +46,14 @@ app.put("/UpdateTask",jsonParser,async(req,res)=>{
     
     )
     res.send(data.acknowledged)
+
+})
+
+app.get("/fetchCategory/:key",async(req,res)=>{
+
+    let data=await Taskschema.find({tags:req.params.key})
+
+    res.send(data)
 
 })
 
