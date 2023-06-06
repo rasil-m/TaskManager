@@ -17,7 +17,7 @@ const Meeting = () => {
 
     loadData()
 
-  })
+  },[])
 
   const task=Data?.map((task,key)=>{
     if(!task.type)

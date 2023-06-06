@@ -57,4 +57,11 @@ app.get("/fetchCategory/:key",async(req,res)=>{
 
 })
 
+app.get("/fetchImp",async(req,res)=>{
+
+    let data=await Taskschema.find({important:true})
+
+    res.send(data)
+})
+
 app.listen(process.env.PORT || 8081);

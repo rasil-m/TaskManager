@@ -30,3 +30,8 @@ export const fetchCategory=(key)=>
  {
   return axios.get("http://localhost:8081/fetchCategory/"+key)
  }
+
+export const fetchImp=()=>
+ {
+  return axios.get("http://localhost:8081/fetchImp")
+ }
