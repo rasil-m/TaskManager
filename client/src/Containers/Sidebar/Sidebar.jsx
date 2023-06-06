@@ -27,9 +27,9 @@ const Sidebar = () => {
 
   return (
     <div className="__navbar">
-        <Link to=""><TodayOutlinedIcon/>Today</Link>
+        <Link to="today"><TodayOutlinedIcon/>Today</Link>
         <Link to="important"><StarBorderOutlinedIcon/>Important</Link>
-        <Link to=""><CalendarMonthOutlinedIcon/>Upcoming</Link>
+        <Link to="upcoming"><CalendarMonthOutlinedIcon/>Upcoming</Link>
         <Link to=""><DeleteOutlineOutlinedIcon/>Trash</Link>
         <div className="__category_box">
           <button className='create'onClick={()=>{handleDlg()}}><AddOutlinedIcon sx={{ fontSize:25 }}/></button>
