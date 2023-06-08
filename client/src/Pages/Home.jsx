@@ -56,7 +56,10 @@ const Home = () => {
        <Category name="All" handle={loadData}/>
         {category}
        </div>
-      {task}
+       {
+        (Data.length==0)?"Add new Task":task
+       }
+      
     </div>
   )
 }

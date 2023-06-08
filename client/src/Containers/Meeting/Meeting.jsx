@@ -10,14 +10,13 @@ const Meeting = () => {
    {
     const response=await fetchData()
     setData(response.data)
-    console.log(Data)
    }
 
   useEffect(()=>{
 
     loadData()
 
-  },[])
+  })
 
   const task=Data?.map((task,key)=>{
     if(!task.type)
@@ -25,14 +24,13 @@ const Meeting = () => {
       <MeetingCard data={task}/>
       )
   })
-
   
 
   return (
     <div className="__meeting">
         <h1>Meeting Schedule</h1>
         <div className="__card">
-            {task}
+          {task}
         </div>
     </div>
   )

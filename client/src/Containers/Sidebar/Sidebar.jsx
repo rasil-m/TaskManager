@@ -8,6 +8,7 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import Addtask from '../../Components/Addtask/Addtask';
 import CloseIcon from '@mui/icons-material/Close'
+import PendingActionsOutlinedIcon from '@mui/icons-material/PendingActionsOutlined';
 
 const Sidebar = () => {
 
@@ -30,7 +31,7 @@ const Sidebar = () => {
         <Link to="today"><TodayOutlinedIcon/>Today</Link>
         <Link to="important"><StarBorderOutlinedIcon/>Important</Link>
         <Link to="upcoming"><CalendarMonthOutlinedIcon/>Upcoming</Link>
-        <Link to=""><DeleteOutlineOutlinedIcon/>Trash</Link>
+        <Link to="pending"><PendingActionsOutlinedIcon/>Pending</Link>
         <div className="__category_box">
           <button className='create'onClick={()=>{handleDlg()}}><AddOutlinedIcon sx={{ fontSize:25 }}/></button>
           {

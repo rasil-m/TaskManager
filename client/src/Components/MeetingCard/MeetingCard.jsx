@@ -39,6 +39,12 @@ const MeetingCard = ({data}) => {
     {
        setToggle(!toggle)
     }
+    const finishTask=async(key)=>
+    {
+      const response=await deletData(key)
+        if(response.data)
+         handleDlg()
+    }
 
      
 
@@ -48,7 +54,7 @@ const MeetingCard = ({data}) => {
         <div className='__content'>
         <p>12:30 PM - 02:00 PM</p>
         <h2>{data.taskName}</h2>
-        <button onClick={()=>{alert()}}>Finished</button>
+        <button onClick={()=>{finishTask(data._id)}}>Finished</button>
         </div>
         {
             dl?
