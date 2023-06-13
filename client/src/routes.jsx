@@ -6,18 +6,20 @@ import Importatnt from './Pages/Importatnt';
 import Today from './Pages/Today'
 import Upcoming from './Pages/Upcoming';
 import Pending from './Pages/Pending';
+import Signin from './Pages/Signin';
 
 const routes = () => {
   return (
     <>
      <Routes>
-        <Route path='/' element={<Layout/>}>
+        <Route path='task' element={<Layout/>}>
           <Route index element={<Home/>}/>
           <Route path='important' element={<Importatnt/>}/>
           <Route path='today' element={<Today/>}/>
           <Route path='upcoming' element={<Upcoming/>}/>
           <Route path='pending' element={<Pending/>}/>
         </Route>
+        <Route path='/' element={<Signin/>}/>
      </Routes>
     </>
   )

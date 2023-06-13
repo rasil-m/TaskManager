@@ -1,0 +1,65 @@
+.__login
+{
+    width: 350px;
+    min-width: 300px;
+    height: 100%;
+    padding:50px 30px;
+    margin: 4rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    border-radius: 10px;
+    background: #fff;
+    -webkit-box-shadow: -5px 9px 50px 0px rgba(225,225,225,1);
+    -moz-box-shadow: -5px 9px 50px 0px rgba(225,225,225,1);
+    box-shadow: -5px 9px 50px 0px rgba(225,225,225,1);
+    animation: login 0.4s;
+}
+@keyframes login
+ {
+    0%{transform: scale(0,0);}
+    100%{transform: scale(1,1);}
+ }
+.__login p
+{
+    position: relative;
+}
+.__login label
+{
+    position: absolute;
+    left: 0.8rem;
+    top:0.5rem;
+    font-size: 0.8rem;
+    transition: 0.4s;
+    pointer-events: none;
+}
+.__login input
+{
+    outline:none;
+    border: 1px solid var(--violet);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+.__login input:focus~label,.__login input:valid~label
+{
+    transform: translateY(-1.2rem);
+    transition: 0.4s;
+    background: #fff;
+}
+.__login button
+{
+    outline: none;
+    border: none;
+    background: var(--violet);
+    color: #fff;
+    padding: 15px 50px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.match
+{
+    font-size: 0.8rem;
+    color: #ff0000;
+}

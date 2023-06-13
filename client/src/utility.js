@@ -35,3 +35,9 @@ export const fetchImp=()=>
  {
   return axios.get("http://localhost:8081/fetchImp")
  }
+
+ export const signUp=(data)=>
+ {
+    return axios.post("http://localhost:8081/signUp",data)
+
+ }

@@ -2,19 +2,24 @@ const express=require("express");
 const cors = require('cors');
 const app=express();
 const mongoose=require("mongoose");
+mongoose.connect('mongodb://0.0.0.0:27017/TaskManager');
 app.use(cors());
 const bodyParser=require("body-parser");
 const jsonParser = bodyParser.json();
 const Taskschema=require("./DB/TaskSchema")
-mongoose.connect('mongodb://0.0.0.0:27017/TaskManager');
+const User=require("./DB/UserSchema")
+const Task=require("./DB/Task")
+const UserExist=require("./DB/UserExist")
+
 
 
 app.post("/addTask",jsonParser,async(req,res)=>{
-
    
-
-    const Data=new Taskschema(req.body);
+    //const Data=new Taskschema(req.body);
+    const Data1=await Task.Task();
+    const Data=new Data1(req.body);
     Data.save().then(()=>{ res.send("true")})
+   console.log(Data)
 })
 
 app.get("/fetchData",async(req,res)=>{
@@ -62,6 +67,26 @@ app.get("/fetchImp",async(req,res)=>{
     let data=await Taskschema.find({important:true})
 
     res.send(data)
+})
+
+app.post("/signUp",jsonParser,async(req,res)=>{
+
+    const usr=UserExist.fetchOne(req.body.mail)
+
+    usr.then((r)=>{
+      
+      if(!r)
+      {
+        const Data=new User(req.body);
+        Data.save().then((s)=>{ res.send(s)})
+        res.send(false)
+      }
+      else
+      {
+        res.send(true)
+      }
+    })
+
 })
 
 app.listen(process.env.PORT || 8081);
