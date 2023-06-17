@@ -45,6 +45,7 @@ const MeetingCard = ({data}) => {
         if(response.data)
          handleDlg()
     }
+    
 
      
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { signUp } from '../../utility'
-import {useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const SignUp = () => {
 
@@ -22,7 +22,7 @@ const SignUp = () => {
     else
      {
       localStorage.setItem("id",res.data._id)
-      localStorage.setItem("auth","true")
+      localStorage.setItem("auth",true)
       navigate("/task")
      }
    }

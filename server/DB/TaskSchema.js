@@ -9,7 +9,8 @@ const taskSchema = new Schema({
     important:Boolean,
     desc:String,
     tags:String,
-    type:Boolean
+    type:Boolean,
+    user:String
    },
     {versionKey: false}
   );

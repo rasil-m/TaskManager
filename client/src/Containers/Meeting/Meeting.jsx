@@ -24,13 +24,20 @@ const Meeting = () => {
       <MeetingCard data={task}/>
       )
   })
+  let len=Data?.filter((task,key)=>{return !(task.type)}).length
   
 
   return (
     <div className="__meeting">
         <h1>Meeting Schedule</h1>
         <div className="__card">
-          {task}
+        {
+        len<=0?
+        <div className="__meeting_card"> 
+        <h1 className="emty">Add new meeting</h1>
+        </div>
+        :task
+       }
         </div>
     </div>
   )

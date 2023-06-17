@@ -28,10 +28,18 @@ const TodayTask = () => {
         )
     })
 
+    let len=Data?.filter((task,key)=>{return task.type}).length
+
 
   return (
     <div className='__tasks'>
-        {task}
+       {
+        len<=0?
+        <div className="__taskcard"> 
+        <h1 className="emty">No task found Add new task</h1>
+        </div>
+        :task
+       }
     </div>
   )
 }

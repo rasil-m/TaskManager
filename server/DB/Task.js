@@ -1,6 +1,8 @@
 const mongoose=require("mongoose");
-const Schema = mongoose.Schema;
-const Task=()=>
+const client=mongoose.connect('mongodb://0.0.0.0:27017/TaskManager');
+const { Schema } = mongoose;
+mongoose.Promise = global.Promise;
+const Task=(id)=>
  {
 
 const taskSchema = new Schema({
@@ -15,8 +17,9 @@ const taskSchema = new Schema({
    },
     {versionKey: false}
   );
+  const coll="user"+id
   
-  const task=mongoose.model("tas",taskSchema);
-  return task;
+  return mongoose.models.coll || mongoose.model("user"+id,taskSchema);
+  
  }
  module.exports={Task}

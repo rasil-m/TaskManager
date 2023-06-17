@@ -5,7 +5,8 @@ import { fetchData,fetchCategory } from '../utility'
 
 const Home = () => {
   const [Data,setData]=useState([]);
-  const [filter,setFilter]=useState(false)
+  const [filter,setFilter]=useState()
+
 
   const loadData=async()=>
    {
@@ -15,16 +16,21 @@ const Home = () => {
 
    useEffect(()=>{
     
-    filter?loadCategory():loadData()
+    loadData()
 
-   },[])
+   })
+
+   
 
   const task=Data?.map((task,key)=>{
     if(task.type)
       return(
       <TaskCard data={task} load={loadData}/>
       )
+    
   })
+
+  let len=Data?.filter((task,key)=>{return task.type}).length
 
   const loadCategory=async(key)=>
    {
@@ -34,8 +40,8 @@ const Home = () => {
 
     const handleClick=(e)=>
         {
-          loadCategory(e)
           setFilter(true)
+          loadCategory(e)
         }
 
   const category=Data?.map((task,k)=>{
@@ -46,18 +52,17 @@ const Home = () => {
   })
 
   //const response=fetchData()
-
   
 
 
   return (
     <div className='__home'>
-       <div className="__categories">
-       <Category name="All" handle={loadData}/>
-        {category}
-       </div>
        {
-        (Data.length==0)?"Add new Task":task
+        len<=0?
+        <div className="__taskcard"> 
+        <h1 className="emty">No task found Add new task</h1>
+        </div>
+        :task
        }
       
     </div>

@@ -11,7 +11,7 @@ const Addtask = ({isOpen,handle,type}) => {
 
     const currentTime=new Date().toLocaleTimeString('en-US', { hour12: false, hour: "numeric", minute: "numeric"})
     
-
+    const id=localStorage.getItem("id")
     const[data,setData]=useState({
         taskName:"",
         date:today,
@@ -20,7 +20,8 @@ const Addtask = ({isOpen,handle,type}) => {
         desc:"",
         tags:"",
         important:false,
-        type:type
+        type:type,
+        user:id
 
     })
 
@@ -28,8 +29,6 @@ const Addtask = ({isOpen,handle,type}) => {
         setData({...data,type:type})
 
     })
-
-    console.log(data.type)
 
 
 
